@@ -4,4 +4,6 @@ name: Armor-Dyer
 
 commands:
   armor:
-    description: Opens the armor GUI.
+    description: Opens the armor GUI with the US spelling.
+  armour:
+    description: Opens the armour GUI with the UK spelling.

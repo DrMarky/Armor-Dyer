@@ -1,0 +1,7 @@
+main: me.drmarky.armordyer.Main
+version: 2.0.0
+name: Armor-Dyer
+
+commands:
+  armor:
+    description: Opens the armor GUI.

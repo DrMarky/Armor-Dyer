@@ -3,6 +3,8 @@ package me.drmarky.armordyer;
 import me.drmarky.armordyer.Commands.ArmorCommand;
 import me.drmarky.armordyer.Commands.ArmourCommand;
 import me.drmarky.armordyer.Commands.Command;
+import me.drmarky.armordyer.Events.InventoryClickListener;
+import me.drmarky.armordyer.Events.InventoryCloseListener;
 import me.drmarky.armordyer.Utilities.PlayerObject;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -40,7 +42,8 @@ public class Main extends JavaPlugin {
 
     private void registerEvents() {
         PluginManager pm = getServer().getPluginManager();
-        //pm.registerEvents(new PlayerMoveListener(new GenerateWinner(new StopGame()), new StopGame()), this);
+        pm.registerEvents(new InventoryClickListener(this), this);
+        pm.registerEvents(new InventoryCloseListener(this), this);
 
     }
 

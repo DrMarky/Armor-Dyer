@@ -2,6 +2,7 @@ package me.drmarky.armordyer.Events;
 
 import me.drmarky.armordyer.Main;
 import me.drmarky.armordyer.Utilities.Utils;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -41,11 +42,19 @@ public class InventoryClickListener implements Listener {
         ItemStack clicked = e.getCurrentItem();
 
         // CHECK: tbh just to get rid of the unnecessary null pointer exception
-        if (!(clicked.hasItemMeta() || clicked.getItemMeta().getDisplayName() == null)) {
+        if (!(clicked.hasItemMeta())) {
             return;
         }
 
-        if (Utils.colorMap.containsKey(clicked.getItemMeta().getDisplayName())) {
+        if (clicked.getType().equals(Material.LEATHER_HELMET)
+                || clicked.getType().equals(Material.LEATHER_CHESTPLATE)
+                || clicked.getType().equals(Material.LEATHER_LEGGINGS)
+                || clicked.getType().equals(Material.LEATHER_BOOTS)) {
+        // Give the armor
+
+            player.getInventory().addItem(clicked);
+
+        } else if (Utils.colorMap.containsKey(clicked.getItemMeta().getDisplayName())) {
         // Change the color
 
             main.directory.get(player).layerCount++;
@@ -61,7 +70,7 @@ public class InventoryClickListener implements Listener {
                 Utils.mixUpdateColor(main.directory.get(player).gui, Utils.colorMap.get(clicked.getItemMeta().getDisplayName()));
             }
 
-        } else if (clicked.getItemMeta().getDisplayName() != null) {
+        } else {
         // Undo
 
             int r = main.directory.get(player).previousR;
@@ -70,10 +79,6 @@ public class InventoryClickListener implements Listener {
 
             Utils.forceColorUpdate(main.directory.get(player).gui, r, g, b);
 
-        } else {
-        // Give the armor
-
-            player.getInventory().addItem(clicked);
         }
     }
 }

@@ -1,6 +1,5 @@
 package me.drmarky.armordyer;
 
-import me.drmarky.armordyer.Main;
 import me.drmarky.armordyer.Utilities.PlayerObject;
 import me.drmarky.armordyer.Utilities.Utils;
 import org.bukkit.Bukkit;

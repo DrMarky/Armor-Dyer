@@ -15,18 +15,18 @@ import java.util.HashMap;
 
 public class Utils {
 
-    public static ItemStack setName(ItemStack itemStack, String name) {
+    private static ItemStack setName(ItemStack itemStack, String name) {
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
         itemStack.setItemMeta(meta);
         return itemStack;
     }
 
-    public static void setConcrete(Inventory gui, int i, int b, String name) {
+    private static void setConcrete(Inventory gui, int i, int b, String name) {
         gui.setItem(i, setName(new ItemStack(Material.CONCRETE, 1, (byte) b), name));
     }
 
-    public static void setArmor(Inventory gui, int i, Material material) {
+    private static void setArmor(Inventory gui, int i, Material material) {
         gui.setItem(i, new ItemStack(material));
     }
 

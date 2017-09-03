@@ -40,6 +40,11 @@ public class InventoryClickListener implements Listener {
 
         ItemStack clicked = e.getCurrentItem();
 
+        // CHECK: tbh just to get rid of the unnecessary null pointer exception
+        if (!(clicked.hasItemMeta() || clicked.getItemMeta().getDisplayName() == null)) {
+            return;
+        }
+
         if (Utils.colorMap.containsKey(clicked.getItemMeta().getDisplayName())) {
         // Change the color
 

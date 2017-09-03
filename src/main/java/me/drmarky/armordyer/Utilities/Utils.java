@@ -122,4 +122,10 @@ public class Utils {
 
     }
 
+    public static String upperCaseFirst(String input) {
+
+        char[] array = input.toCharArray();
+        array[0] = Character.toUpperCase(array[0]);
+        return new String(array);
+    }
 }

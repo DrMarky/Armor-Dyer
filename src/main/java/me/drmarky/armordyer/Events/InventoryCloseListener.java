@@ -21,5 +21,4 @@ public class InventoryCloseListener implements Listener {
             main.directory.remove(player);
         }
     }
-
 }

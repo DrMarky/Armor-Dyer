@@ -1,8 +1,5 @@
 package me.drmarky.armordyer;
 
-import me.drmarky.armordyer.Commands.ArmorCommand;
-import me.drmarky.armordyer.Commands.ArmourCommand;
-import me.drmarky.armordyer.Commands.Command;
 import me.drmarky.armordyer.Events.InventoryClickListener;
 import me.drmarky.armordyer.Events.InventoryCloseListener;
 import me.drmarky.armordyer.Utilities.PlayerObject;
@@ -48,8 +45,7 @@ public class Main extends JavaPlugin {
     }
 
     private void registerCommands() {
-        getCommand("armor").setExecutor(new ArmorCommand(new Command(this)));
-        getCommand("armour").setExecutor(new ArmourCommand(new Command(this)));
+        getCommand("armor").setExecutor(new ArmorCommand(this));
     }
 
 }
